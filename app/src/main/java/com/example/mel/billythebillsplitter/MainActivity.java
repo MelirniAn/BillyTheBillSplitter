@@ -1,9 +1,8 @@
 package com.example.mel.billythebillsplitter;
 
-//Adding this line of code for test
-
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -70,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
     //Save to FILE
     private File file;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
-    private boolean mFlashSupported;
+//    private boolean mFlashSupported;
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
+
 
     CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        configureNextButton();
 
         textureView = (TextureView)findViewById(R.id.textureView);
         //From Java 1.4 , you can use keyword 'assert' to check expression true or false
@@ -348,5 +350,17 @@ public class MainActivity extends AppCompatActivity {
         mBackgroundThread = new HandlerThread("Camera Background");
         mBackgroundThread.start();
         mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
+    }
+
+    //Code to go to next activity (act2)
+    private void configureNextButton(){
+        Button nextButton = (Button) findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,act2.class));
+            }
+        });
+
     }
 }
