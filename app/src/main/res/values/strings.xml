@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Billy The BillSplitter</string>
+    <string name="nextButton">nextButton</string>
 </resources>
