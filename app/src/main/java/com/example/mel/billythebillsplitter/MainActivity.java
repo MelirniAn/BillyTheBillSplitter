@@ -127,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Capture image with custom size
-            int width = 640;
-            int height = 480;
+            int width = 3024;//640;
+            int height = 4032;//480;
 
             /*
             if(jpegSizes != null && jpegSizes.length > 0)
