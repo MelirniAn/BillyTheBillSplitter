@@ -1,5 +1,7 @@
 package com.example.mel.billythebillsplitter;
 
+//Adding this line of code for test
+
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
