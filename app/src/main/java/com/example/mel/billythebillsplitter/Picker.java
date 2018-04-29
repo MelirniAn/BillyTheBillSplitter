@@ -1,12 +1,21 @@
 package com.example.mel.billythebillsplitter;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.text.TextBlock;
+import com.google.android.gms.vision.text.TextRecognizer;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import edmt.dev.androidcamera2api.R;
@@ -17,7 +26,6 @@ public class Picker extends AppCompatActivity {
     int counter = 0;
     int max;
     String curr;
-
 
     Player p1 = new Player("1",0.0);
     Player p2 = new Player("2",0.0);
@@ -38,17 +46,25 @@ public class Picker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picker);
 
-        //bigString="2.22 3.22 5.22 1.22";
 
-        //bigString = bundle.getString("rec");
-        //parseString(bigString);
+//        act2 x = new act2();
+//
+//        StringBuilder sb = x.getResults();
+//
+//        //Using the Parser Class
+//        Parser moneyString = new Parser(sb);
+//        moneyString.makeList();
+//        money = moneyString.getCost();
 
-        money.add(2.5);
-        money.add(5.1);
-        money.add(9.22);
+    money.add(12.50);
+    money.add(7.50);
+    money.add(10.50);
+
+
 
         counter = 0;
-        max = 3;//money.size();
+        //once the totals are all computer and assigned, goes to next screen
+        max = money.size();
 
         player1 = (TextView) findViewById(R.id.totalP1);
         player2 = (TextView) findViewById(R.id.totalP2);
