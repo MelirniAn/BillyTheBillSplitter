@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Parser extends act2{
     //Data
-    private StringBuilder results;
+    private String results;
     private ArrayList<Double> cost = new ArrayList<>();
 
     //Constructor
-    public Parser(StringBuilder results){
+    public Parser(String results){
         this.results = results;
     }
 
@@ -27,7 +27,7 @@ public class Parser extends act2{
 
         //throwaway StringBuilder
         StringBuilder dump =  new StringBuilder();
-        ArrayList<StringBuilder> inStringForm = new ArrayList<>();
+        ArrayList<String> inStringForm = new ArrayList<>();
 
         //take results and remove any non digits or decimals
         for(int i = 0; i < readThru.length(); i++){
@@ -44,11 +44,11 @@ public class Parser extends act2{
 
             //if \n, add to  StringBuilder("dump") to ArrayList(cost) then destroy the throwaway
             if(sb.codePointAt(c) != 10){
-                dump.append(c);
+                dump.append(sb.charAt(c));
             }
             else{
-                inStringForm.add(dump);
-                dump.delete(0,dump.length()-1);
+                inStringForm.add(dump.toString());
+                dump.delete(0,dump.length());
                 }
             }
 

@@ -47,18 +47,18 @@ public class Picker extends AppCompatActivity {
         setContentView(R.layout.activity_picker);
 
 
-//        act2 x = new act2();
-//
-//        StringBuilder sb = x.getResults();
-//
-//        //Using the Parser Class
-//        Parser moneyString = new Parser(sb);
-//        moneyString.makeList();
-//        money = moneyString.getCost();
+        Bundle bundle = getIntent().getExtras();
 
-    money.add(12.50);
-    money.add(7.50);
-    money.add(10.50);
+        String sb = bundle.getString("resultsData");
+
+        //Using the Parser Class
+        Parser moneyString = new Parser(sb);
+        moneyString.makeList();
+        money = moneyString.getCost();
+
+//    money.add(12.50);
+//    money.add(7.50);
+//    money.add(10.50);
 
 
 
