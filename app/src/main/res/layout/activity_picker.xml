@@ -37,12 +37,12 @@
         <Button
             android:id="@+id/buttonP1"
             android:layout_height="118dp"
-            android:text="1" />
+            android:text="Mel" />
 
         <Button
             android:id="@+id/buttonP2"
             android:layout_height="118dp"
-            android:text="2" />
+            android:text="Sebastian" />
 
     </TableRow>
 
@@ -92,12 +92,12 @@
         <Button
             android:id="@+id/buttonP3"
             android:layout_height="118dp"
-            android:text="3" />
+            android:text="Kendall" />
 
         <Button
             android:id="@+id/buttonP4"
             android:layout_height="118dp"
-            android:text="4" />
+            android:text="Billy" />
 
     </TableRow>
 

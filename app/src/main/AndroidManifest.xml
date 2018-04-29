@@ -24,8 +24,8 @@
             android:name="com.example.mel.billythebillsplitter.act2"
             android:exported="true"
             android:label="act2" />
-        <activity android:name="com.example.mel.billythebillsplitter.assign" />
-        <activity android:name="com.example.mel.billythebillsplitter.picker"></activity>
+        <activity android:name="com.example.mel.billythebillsplitter.Picker"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
