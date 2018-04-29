@@ -37,22 +37,16 @@ public class act2 extends AppCompatActivity {
 
 
 
+
     }
 
     //onClickListener to move to the Picker class
 
-  //  protected StringBuilder sb = new StringBuilder();
 
-    private void configureNextButton(){
-        Button nextButton = (Button) findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(act2.this,Picker.class));
-            }
-        });
 
-    }
+
+
+    private String carry;
 
     public void getTextFromImage(View v)    {
 
@@ -72,6 +66,7 @@ public class act2 extends AppCompatActivity {
 
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
+
         StringBuilder sb = new StringBuilder();
 
         if(!textRecognizer.isOperational()) {
@@ -89,8 +84,9 @@ public class act2 extends AppCompatActivity {
                 sb.append("\n");
             }
 
-
             textView.setText(sb.toString());
+
+            carry = sb.toString();
 
 
             configureNextButton();
@@ -100,10 +96,34 @@ public class act2 extends AppCompatActivity {
        // myBitmap.recycle();
     }
 
-//    public StringBuilder getResults(){
-//        return sb;
-//    }
+    public String getResults(){
+        return carry;
+    }
 
+
+    private void configureNextButton(){
+        Button nextButton = (Button) findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(act2.this, Picker.class);
+
+                String x = getResults();
+
+
+                Bundle bundle = new Bundle();
+
+                bundle.putString("resultsData", x);
+
+                i.putExtras(bundle);
+
+                startActivity(i);
+               // startActivity(new Intent(act2.this,Picker.class));
+            }
+        });
+
+    }
 
 
 
