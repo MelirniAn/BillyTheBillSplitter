@@ -36,12 +36,12 @@
 
         <Button
             android:id="@+id/buttonP1"
-            android:layout_height="118dp"
+            android:layout_height="100dp"
             android:text="Mel" />
 
         <Button
             android:id="@+id/buttonP2"
-            android:layout_height="118dp"
+            android:layout_height="100dp"
             android:text="Sebastian" />
 
     </TableRow>
@@ -91,12 +91,12 @@
 
         <Button
             android:id="@+id/buttonP3"
-            android:layout_height="118dp"
+            android:layout_height="100dp"
             android:text="Kendall" />
 
         <Button
             android:id="@+id/buttonP4"
-            android:layout_height="118dp"
+            android:layout_height="100dp"
             android:text="Billy" />
 
     </TableRow>
@@ -131,8 +131,53 @@
         <Button
             android:id="@+id/buttonTax"
             android:layout_width="wrap_content"
-            android:layout_span="2"
             android:text="Tax" />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="72dp"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+
+        <SeekBar
+            android:id="@+id/tipSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="30"
+            android:progress="15" />
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="72dp"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_height="match_parent"
+            android:text="Delete" />
+
+        <Button
+            android:id="@+id/Done"
+            android:layout_height="match_parent"
+            android:text="Done" />
 
     </TableRow>
 
