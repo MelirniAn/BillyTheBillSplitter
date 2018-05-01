@@ -23,19 +23,19 @@ import edmt.dev.androidcamera2api.R;
 
 public class Picker extends AppCompatActivity {
 
-    ArrayList<Double> money = new ArrayList<Double>();
+    ArrayList<Double> money = new ArrayList<Double>();  //Lots of variables declared on this activity. All unprotected because the validation is through the GUI.
     int counter = 0;
     int max;
     String curr;
     double tipOld = 0;
 
-    Player p1 = new Player("1",0.0);
+    Player p1 = new Player("1",0.0);    //set up the players
     Player p2 = new Player("2",0.0);
     Player p3 = new Player("3",0.0);
     Player p4 = new Player("4",0.0);
     Player taxPlayer = new Player("tax", 0.0);
 
-    TextView player1;
+    TextView player1;   //set up the text views
     TextView player2;
     TextView player3;
     TextView player4;
@@ -44,8 +44,6 @@ public class Picker extends AppCompatActivity {
     TextView tip;
     SeekBar slider;
 
-    //Bundle bundle = getIntent().getExtras();
-    //String bigString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +53,10 @@ public class Picker extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        String sb = bundle.getString("resultsData");
+        String sb = bundle.getString("resultsData");    //pull in the google vision string
 
         //Using the Parser Class
-        Parser moneyString = new Parser(sb);
+        Parser moneyString = new Parser(sb);    //parse the string into an arraylist
         moneyString.makeList();
         money = moneyString.getCost();
 
@@ -71,7 +69,7 @@ public class Picker extends AppCompatActivity {
         //once the totals are all computer and assigned, goes to next screen
         max = money.size();
 
-        player1 = (TextView) findViewById(R.id.totalP1);
+        player1 = (TextView) findViewById(R.id.totalP1);    //initialize the textViews and Buttons
         player2 = (TextView) findViewById(R.id.totalP2);
         player3 = (TextView) findViewById(R.id.totalP3);
         player4 = (TextView) findViewById(R.id.totalP4);
@@ -88,9 +86,12 @@ public class Picker extends AppCompatActivity {
         Button doneButton = (Button) findViewById(R.id.Done);
         slider = (SeekBar) findViewById(R.id.tipSlider);
 
-        setText();
+        setText();  //set all text boxes.
 
 
+        /**
+         * Slider to calulate tip
+         */
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressValue = 15;
             double tipAmount;
@@ -116,7 +117,7 @@ public class Picker extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(counter<max+1) {
+                if(counter<max+1) {                     //if there are still numbers unassigned, add that number to this player.
                     p1.add(money.get(counter - 1));
                     setText();
                 }
@@ -179,7 +180,7 @@ public class Picker extends AppCompatActivity {
                 else {
                     Player[] players = {p1, p2, p3, p4};
                     for (int i = 0; i < 4; i++) {
-                        players[i].add(taxPlayer.getTotal()*players[i].getTotal()/subtotal());
+                        players[i].add(taxPlayer.getTotal()*players[i].getTotal()/subtotal());  //evenly divide tax and tip based on %spent per person.
                         players[i].add(tipOld*players[i].getTotal()/subtotal());
                         slider.setProgress(0);
                     }

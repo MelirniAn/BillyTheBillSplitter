@@ -7,7 +7,7 @@ package com.example.mel.billythebillsplitter;
 public class Player {
 
     protected double total;
-    protected String name;
+    protected String name;      //name field to be entered once venmo capabilities are added.
 
     /**
      * Builds a player object
@@ -32,7 +32,7 @@ public class Player {
      * @return the total in $x.xx format
      */
     public String getTotalString()  {
-        String r = String.format("%.2f",getTotal());
+        String r = String.format("%.2f",getTotal());    //format to two decimal places
         return ("$"+r);
     }
 
