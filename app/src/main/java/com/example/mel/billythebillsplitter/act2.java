@@ -23,15 +23,19 @@ import edmt.dev.androidcamera2api.R;
 
 public class act2 extends AppCompatActivity {
 
-    ImageView i1;
+    ImageView i1;           //Declare an imageview and TextView. Outside of methods to carry over inbetween methods.
     TextView textView;
 
+    /**
+     * When the screen is started, intialize the text and image classes with those identified in the .xml file.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act2);
 
-        i1 = (ImageView) findViewById(R.id.imageView);
+        i1 = (ImageView) findViewById(R.id.imageView);          //initialize the ImageView and TextView as the one indentified in the .xml
         textView = (TextView) findViewById(R.id.text_value);
 
 
@@ -46,8 +50,15 @@ public class act2 extends AppCompatActivity {
 
 
 
-    private String carry;
+    private String carry;   //Declare a variable outside of methods to carry the string from Act2 to Picker class.
 
+
+    /**
+     * When the button is clicked, this method will read the text using google vision, and separate it into lines.
+     * It will then put those lines into a string and display it on screen as confirmation that it was read.
+     * It will set the carry variable so that the next activity can pull the string into it.
+     * @param v
+     */
     public void getTextFromImage(View v)    {
 
 
@@ -96,11 +107,17 @@ public class act2 extends AppCompatActivity {
        // myBitmap.recycle();
     }
 
+    /**
+     * Method to get the results from google vision
+     * @return the String built from google vision
+     */
     public String getResults(){
         return carry;
     }
 
-
+    /**
+     * Go to the next activity and carry the string with it.
+     */
     private void configureNextButton(){
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {

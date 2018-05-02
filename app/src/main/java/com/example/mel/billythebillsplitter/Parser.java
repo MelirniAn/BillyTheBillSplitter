@@ -54,7 +54,9 @@ public class Parser extends act2{
 
         //Convert the Strings to Doubles
         for(int a = 0; a < inStringForm.size(); a++){
-            cost.add(Double.parseDouble(inStringForm.get(a).toString()));
+            if(inStringForm.get(a).isEmpty() == false ){
+                cost.add(Double.parseDouble(inStringForm.get(a).toString()));
+            }
         }
 
     }//End of method
